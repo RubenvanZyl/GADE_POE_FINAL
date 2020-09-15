@@ -18,12 +18,6 @@ namespace GADE_TASK1
             Charater MainCharacter = new Charater();
         }
 
-        public abstract class Tile
-        {
-            public double X { get; set; }
-            public double Y { get; set; }
-        }
-
         public enum TileType
         {
             Gold = 2,
@@ -43,16 +37,6 @@ namespace GADE_TASK1
                 enemy = (char)TileType.Enemy;
 
             }
-        }
-
-        class EmptyTile : Tile
-        {
-            public virtual void Tile(double posx, double posy)
-            {
-                posx = base.X;
-                posy = base.Y;
-            }
-
         }
 
 
