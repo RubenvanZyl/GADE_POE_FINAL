@@ -11,11 +11,12 @@ namespace GADE_TASK1
     {
         protected Tile[,] maparray;
         protected Hero mainHero = new Hero();
-        protected int mapwidth;
+        protected Enemy mainEnemy = new Enemy();
+        protected int mapWidth;
         protected int mapHeight;
         protected Random rng = new Random();
 
-        public Map(int miniWidth, int maxiWidth, int miniHeight, int maxiHeight, int numberofenemies)
+        public Maps(int miniWidth, int maxiWidth, int miniHeight, int maxiHeight, int numberofenemies)
         {
             int randomwidth = rng.Next(miniWidth, maxiWidth);
             MainEnemy = new Enemy[(randomwidth + randomHeight) / 3];

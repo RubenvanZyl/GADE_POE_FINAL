@@ -29,5 +29,14 @@ namespace GADE_TASK1
                 + "Damage: " + 2
                 + "[" + X + "," + Y + "]";
         }
+
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("HP: " + HP);
+            Console.WriteLine("Current Weapon: " + Weapon);
+            Console.Write("Weapon Range: " + range);
+            Console.Write("Weapon Damage: " + Damage);
+            Console.Write("Gold: " + Gold);
+        }
     }
 }

@@ -8,6 +8,9 @@ namespace GADE_TASK1
 {
     class Goblin
     {
+        protected int maxHp;
+        protected int damage;
+        protected int HP;
         public Goblin(int Xinput, int Yinput, int HP)
         {
             this.HP - HP;
