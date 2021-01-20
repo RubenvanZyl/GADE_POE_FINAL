@@ -6,26 +6,44 @@ using System.Threading.Tasks;
 
 namespace GADE_TASK1
 {
-    class RangeWeapons
+    abstract class RangedWeapons : Weapon
     {
-    }
+        enum Types
+        {
+            Rifle,
+            Longbow
+        }
 
-    enum Rifle
-    {
-        Type,
-        Durablity = 3,
-        Range = 3,
-        Damage = 5,
-        Cost = 7
-    }
+        public override int Range 
+        {
+            set { }
+            get { return base.Range; }
+        }
+        //todo:fix get weapon type
+        public void getWeaponType(Types types)
+        {
+            switch (types)
+            {
+                case Types.Rifle:
+                    WeaponType = Types.Rifle;
+                    Durablity = 3;
+                    Range = 3;
+                    Damage = 5;
+                    Cost = 7;
+                    break;
 
+                case Types.Longbow:
+                    WeaponType = Types.Longbow;
+                    Durablity = 4;
+                    Range = 2;
+                    Damage = 4;
+                    Cost = 6;
+                    break;
+                default:
 
-    enum Longbow
-    {
-        Type,
-        Durablity = 4,
-        Range = 2,
-        Damage = 4,
-        Cost = 6
+                    break;
+            }
+        }
+
     }
 }

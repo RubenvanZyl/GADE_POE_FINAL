@@ -7,15 +7,22 @@ using System.Windows.Forms;
 
 namespace GADE_TASK1
 {
-    class Character
+    public abstract class Character : Tile
     {
-        public double hp;
-        public double maxHP;
-        public double damage;
-        public double[] vision;
-        public int movement;
-        public int up, left, right, down;
-        public string no_Movement;
+        protected double hp { get; set; }
+        protected double maxHP { get; set; }
+        protected double damage { get; set; }
+
+        public enum Movement
+        {
+            No_Movement,
+            Up,
+            Down,
+            Left,
+            Right
+        }
+
+        public Tile visionArray[int X,int Y]
 
         public virtual void Attack(Character target)
         {
@@ -35,7 +42,7 @@ namespace GADE_TASK1
 
         public virtual bool CheckRange(Character target)
         {
-            if( DistanceTo(target) < 1)
+            if( DistanceTo(target) <= 1)
             {
                 return true;
             }
@@ -48,6 +55,14 @@ namespace GADE_TASK1
         {
             return 0;
         }
-        
+        public void Move
+        {
+
+        }
+        public Character(int x, int y, TileTypeEnum tileType) : base(x, y, tileType)
+        {
+
+        }
+
     }
 }

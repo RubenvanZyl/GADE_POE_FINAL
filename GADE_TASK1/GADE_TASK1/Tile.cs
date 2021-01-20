@@ -6,51 +6,39 @@ using System.Threading.Tasks;
 
 namespace GADE_TASK1
 {
-    class Tile
+    public abstract class Tile
     {
-        abstract class Tileset
+        protected int X { get; set; }
+        protected int Y { get; set; }
+        protected TileTypeEnum TileType { get; set; }
+        public enum TileTypeEnum
         {
-            public double X { get; set; }
-            public double Y { get; set; }
+            Hero,
+            Enemy,
+            Gold,
+            Weapon
+        }
 
-            public enum TileType
-            {
-                Hero = 0,
-                Enemy = 1,
-                Gold = 2,
-                Weapon = 3
-            }
+        public Tile(int x, int y, TileTypeEnum tileType)
+        {
+            X = x;
+            Y = y;
+            TileType = tileType;
+        }
+    }
+    public class Obsticle : Tile
+    {
+        public Obsticle(int x, int y, TileTypeEnum tileType) : base(x, y, tileType)
+        {
+            
+        }
+    }
 
-            public Tileset()
-            {
-                char hero;
-                char enemy;
-                int gold;
-                string weapon;
-                hero = (char)TileType.Hero;
-                enemy = (char)TileType.Enemy;
-                gold = (int)TileType.Gold;
-                weapon = TileType.Weapon.ToString();
-            }
-
-            class Obstacle : Tileset
-            {
-                public virtual void Tile(double posx, double posy)
-                {
-                    posx = base.X;
-                    posy = base.Y;
-                }
-            }
-
-            class EmptyTile : Tileset
-            {
-                public virtual void Tile(double posx, double posy)
-                {
-                    posx = base.X;
-                    posy = base.Y;
-                }
-            }
+    public class EmptyTile : Tile
+    {
+        public EmptyTile(int x, int y, TileTypeEnum tileType) : base(x, y, tileType)
+        {
 
         }
     }
-}
+}   
